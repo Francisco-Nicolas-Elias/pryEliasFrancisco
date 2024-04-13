@@ -59,7 +59,7 @@
             // firmaToolStripMenuItem
             // 
             this.firmaToolStripMenuItem.Name = "firmaToolStripMenuItem";
-            this.firmaToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.firmaToolStripMenuItem.Size = new System.Drawing.Size(118, 24);
             this.firmaToolStripMenuItem.Text = "Firma";
             // 
             // juegoToolStripMenuItem
@@ -75,6 +75,7 @@
             this.galagaToolStripMenuItem.Name = "galagaToolStripMenuItem";
             this.galagaToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.galagaToolStripMenuItem.Text = "Galaga";
+            this.galagaToolStripMenuItem.Click += new System.EventHandler(this.galagaToolStripMenuItem_Click);
             // 
             // frmMenuPrincipal
             // 

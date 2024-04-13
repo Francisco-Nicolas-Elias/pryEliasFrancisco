@@ -10,18 +10,11 @@ using System.Windows.Forms;
 
 namespace pryEliasFrancisco
 {
-    public partial class frmMenuPrincipal : Form
+    public partial class frmGalaga : Form
     {
-        public frmMenuPrincipal()
+        public frmGalaga()
         {
             InitializeComponent();
-        }
-
-        private void galagaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmGalaga frmGalaga = new frmGalaga();
-            frmGalaga.Show();
-            this.Hide();
         }
     }
 }
