@@ -16,5 +16,17 @@ namespace pryEliasFrancisco
         {
             InitializeComponent();
         }
+
+        private void firmaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmFirma frmFirma = new frmFirma();
+            frmFirma.Show();
+            this.Hide();
+        }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
