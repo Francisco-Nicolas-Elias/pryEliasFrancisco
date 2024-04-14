@@ -76,8 +76,8 @@ namespace pryEliasFrancisco
             else 
             {
                 //Incremento la posición vertical
-                pbEnemigo.Top += 15;
-                pbEnemigoDos.Top += 10;
+                pbEnemigo.Top += 30;
+                pbEnemigoDos.Top += 20;
             }
         }
         
@@ -107,7 +107,7 @@ namespace pryEliasFrancisco
                 if (controlActual is PictureBox && controlActual.Tag == "Misil")
                 {
                     //Si el control es el pictureBox hago que se mueva
-                    controlActual.Top -= 20;
+                    controlActual.Top -= 30;
                     if(controlActual.Top < 10)
                     {
                         this.Controls.Remove(controlActual);
@@ -148,7 +148,7 @@ namespace pryEliasFrancisco
                 }
             }
             //Si la nave choca con alguno de los enemigos ingresa y hago que finalice el juego 
-            if(pbNave.Bounds.IntersectsWith(pbEnemigoDos.Bounds) || pbNave.Bounds.IntersectsWith(pbEnemigo.Bounds))
+            if(pbNave.Bounds.IntersectsWith(pbEnemigoDos.Bounds) || pbNave.Bounds.IntersectsWith(pbEnemigo.Bounds) || pbEnemigo.Bottom >= this.ClientSize.Height)
             {
                 timerNave.Stop();
                 timerEnemigo.Stop();
