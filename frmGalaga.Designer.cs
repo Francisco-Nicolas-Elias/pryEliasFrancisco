@@ -36,6 +36,7 @@
             this.timerNave = new System.Windows.Forms.Timer(this.components);
             this.lblPuntaje = new System.Windows.Forms.Label();
             this.pbEnemigoDos = new System.Windows.Forms.PictureBox();
+            this.lblGameOver = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbNave)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEnemigo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEnemigoDos)).BeginInit();
@@ -84,7 +85,7 @@
             this.lblPuntaje.AutoSize = true;
             this.lblPuntaje.BackColor = System.Drawing.Color.Transparent;
             this.lblPuntaje.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPuntaje.ForeColor = System.Drawing.Color.Red;
+            this.lblPuntaje.ForeColor = System.Drawing.Color.Cyan;
             this.lblPuntaje.Location = new System.Drawing.Point(12, 22);
             this.lblPuntaje.Name = "lblPuntaje";
             this.lblPuntaje.Size = new System.Drawing.Size(103, 24);
@@ -103,6 +104,18 @@
             this.pbEnemigoDos.TabStop = false;
             this.pbEnemigoDos.Tag = "Enemigo";
             // 
+            // lblGameOver
+            // 
+            this.lblGameOver.AutoSize = true;
+            this.lblGameOver.BackColor = System.Drawing.Color.Transparent;
+            this.lblGameOver.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGameOver.ForeColor = System.Drawing.Color.Red;
+            this.lblGameOver.Location = new System.Drawing.Point(156, 249);
+            this.lblGameOver.Name = "lblGameOver";
+            this.lblGameOver.Size = new System.Drawing.Size(372, 73);
+            this.lblGameOver.TabIndex = 4;
+            this.lblGameOver.Text = "Game Over";
+            // 
             // frmGalaga
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -110,6 +123,7 @@
             this.BackgroundImage = global::pryEliasFrancisco.Properties.Resources.espacio_exterior;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(684, 661);
+            this.Controls.Add(this.lblGameOver);
             this.Controls.Add(this.pbEnemigoDos);
             this.Controls.Add(this.lblPuntaje);
             this.Controls.Add(this.pbEnemigo);
@@ -137,5 +151,6 @@
         private System.Windows.Forms.Timer timerNave;
         private System.Windows.Forms.Label lblPuntaje;
         private System.Windows.Forms.PictureBox pbEnemigoDos;
+        private System.Windows.Forms.Label lblGameOver;
     }
 }

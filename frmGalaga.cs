@@ -24,6 +24,8 @@ namespace pryEliasFrancisco
             this.KeyDown += new KeyEventHandler(frmGalaga_KeyDown);
             //Aseguro de que el formulario tenga el foco para recibir eventos de teclado
             this.Focus();
+
+            lblGameOver.Hide();
             
         }
 
@@ -118,6 +120,14 @@ namespace pryEliasFrancisco
                         }
                     }
                 }
+            }
+            if(pbNave.Bounds.IntersectsWith(pbEnemigoDos.Bounds) || pbNave.Bounds.IntersectsWith(pbEnemigo.Bounds))
+            {
+                timerNave.Stop();
+                timerEnemigo.Stop();
+                timerMisil.Stop();
+                lblGameOver.Show();
+                lblGameOver.BringToFront();
             }
         }
 
