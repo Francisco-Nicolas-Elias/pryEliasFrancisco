@@ -32,26 +32,30 @@
             this.pbNave = new System.Windows.Forms.PictureBox();
             this.pbEnemigo = new System.Windows.Forms.PictureBox();
             this.timerEnemigo = new System.Windows.Forms.Timer(this.components);
+            this.timerMisil = new System.Windows.Forms.Timer(this.components);
+            this.timerNave = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pbNave)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEnemigo)).BeginInit();
             this.SuspendLayout();
             // 
             // pbNave
             // 
-            this.pbNave.Image = global::pryEliasFrancisco.Properties.Resources.nave;
-            this.pbNave.Location = new System.Drawing.Point(299, 585);
+            this.pbNave.BackColor = System.Drawing.Color.Transparent;
+            this.pbNave.Image = global::pryEliasFrancisco.Properties.Resources.Nave2;
+            this.pbNave.Location = new System.Drawing.Point(270, 544);
             this.pbNave.Name = "pbNave";
-            this.pbNave.Size = new System.Drawing.Size(73, 64);
+            this.pbNave.Size = new System.Drawing.Size(116, 105);
             this.pbNave.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbNave.TabIndex = 0;
             this.pbNave.TabStop = false;
             // 
             // pbEnemigo
             // 
+            this.pbEnemigo.BackColor = System.Drawing.Color.Transparent;
             this.pbEnemigo.Image = global::pryEliasFrancisco.Properties.Resources.enemigo;
-            this.pbEnemigo.Location = new System.Drawing.Point(287, 34);
+            this.pbEnemigo.Location = new System.Drawing.Point(270, 22);
             this.pbEnemigo.Name = "pbEnemigo";
-            this.pbEnemigo.Size = new System.Drawing.Size(73, 64);
+            this.pbEnemigo.Size = new System.Drawing.Size(87, 75);
             this.pbEnemigo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbEnemigo.TabIndex = 1;
             this.pbEnemigo.TabStop = false;
@@ -61,6 +65,16 @@
             // 
             this.timerEnemigo.Enabled = true;
             this.timerEnemigo.Tick += new System.EventHandler(this.timerEnemigo_Tick);
+            // 
+            // timerMisil
+            // 
+            this.timerMisil.Enabled = true;
+            this.timerMisil.Tick += new System.EventHandler(this.timerMisil_Tick);
+            // 
+            // timerNave
+            // 
+            this.timerNave.Enabled = true;
+            this.timerNave.Tick += new System.EventHandler(this.timerNave_Tick);
             // 
             // frmGalaga
             // 
@@ -75,6 +89,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Galaga";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmGalaga_KeyDown);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.frmGalaga_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.pbNave)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEnemigo)).EndInit();
             this.ResumeLayout(false);
@@ -86,5 +101,7 @@
         private System.Windows.Forms.PictureBox pbNave;
         private System.Windows.Forms.PictureBox pbEnemigo;
         private System.Windows.Forms.Timer timerEnemigo;
+        private System.Windows.Forms.Timer timerMisil;
+        private System.Windows.Forms.Timer timerNave;
     }
 }
