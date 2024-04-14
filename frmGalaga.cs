@@ -29,6 +29,24 @@ namespace pryEliasFrancisco
             this.Focus();
         }
 
+        void Movimiento_Enemigo()
+        {
+            Random enemigo = new Random();
+
+            int x, y;
+
+            if (pbEnemigo.Top >= 700)
+            {
+                x = enemigo.Next(0, 420);
+                pbEnemigo.Location = new Point(x, 0);
+            }
+            else 
+            {
+                pbEnemigo.Top += 15;
+            }
+        }
+
+
         private void frmGalaga_KeyDown(object sender, KeyEventArgs e)
         {
             //Obtengo los límites del formulario
@@ -51,6 +69,11 @@ namespace pryEliasFrancisco
                     }
                     break;
             }
+        }
+
+        private void timerEnemigo_Tick(object sender, EventArgs e)
+        {
+            Movimiento_Enemigo();
         }
     }
 }
