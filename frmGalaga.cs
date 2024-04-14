@@ -129,7 +129,7 @@ namespace pryEliasFrancisco
                 lblGameOver.Show();
                 lblGameOver.BringToFront();
 
-                DialogResult resultado = MessageBox.Show("¿Desea volver al menú principal?", "Game Over", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                DialogResult resultado = MessageBox.Show("Su puntaje fue: " + puntaje + "\n¿Desea volver al menú principal?", "Game Over", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
                 // Verificar la respuesta del usuario
                 if (resultado == DialogResult.OK)
