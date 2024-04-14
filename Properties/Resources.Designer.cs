@@ -63,9 +63,39 @@ namespace pryEliasFrancisco.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap enemigo {
+            get {
+                object obj = ResourceManager.GetObject("enemigo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap espacio_exterior {
             get {
                 object obj = ResourceManager.GetObject("espacio exterior", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap misil {
+            get {
+                object obj = ResourceManager.GetObject("misil", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap nave {
+            get {
+                object obj = ResourceManager.GetObject("nave", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
