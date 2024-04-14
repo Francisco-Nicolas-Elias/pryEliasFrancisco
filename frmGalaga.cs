@@ -67,7 +67,7 @@ namespace pryEliasFrancisco
                 posicionUno = enemigo.Next(0, 584);
                 pbEnemigo.Location = new Point(posicionUno, 0);
             }
-            if (pbEnemigoDos.Top >= 500)
+            if (pbEnemigoDos.Top >= 700)
             {
                 //Asigno a posicionDos el número aleatorio(Que representa la nueva posición horizontal del segundo enemigo)
                 posicionDos = enemigo.Next(0, 584);
@@ -148,7 +148,7 @@ namespace pryEliasFrancisco
                 }
             }
             //Si la nave choca con alguno de los enemigos ingresa y hago que finalice el juego 
-            if(pbNave.Bounds.IntersectsWith(pbEnemigoDos.Bounds) || pbNave.Bounds.IntersectsWith(pbEnemigo.Bounds) || pbEnemigo.Bottom >= this.ClientSize.Height)
+            if(pbNave.Bounds.IntersectsWith(pbEnemigoDos.Bounds) || pbNave.Bounds.IntersectsWith(pbEnemigo.Bounds) || pbEnemigo.Bottom >= this.ClientSize.Height || pbEnemigoDos.Bottom >= this.ClientSize.Height)
             {
                 timerNave.Stop();
                 timerEnemigo.Stop();
