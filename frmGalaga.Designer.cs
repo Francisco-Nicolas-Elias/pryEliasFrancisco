@@ -110,7 +110,7 @@
             this.lblGameOver.BackColor = System.Drawing.Color.Transparent;
             this.lblGameOver.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGameOver.ForeColor = System.Drawing.Color.Red;
-            this.lblGameOver.Location = new System.Drawing.Point(156, 249);
+            this.lblGameOver.Location = new System.Drawing.Point(146, 163);
             this.lblGameOver.Name = "lblGameOver";
             this.lblGameOver.Size = new System.Drawing.Size(372, 73);
             this.lblGameOver.TabIndex = 4;
@@ -132,6 +132,7 @@
             this.Name = "frmGalaga";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Galaga";
+            this.Load += new System.EventHandler(this.frmGalaga_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmGalaga_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.frmGalaga_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.pbNave)).EndInit();

@@ -128,6 +128,17 @@ namespace pryEliasFrancisco
                 timerMisil.Stop();
                 lblGameOver.Show();
                 lblGameOver.BringToFront();
+
+                DialogResult resultado = MessageBox.Show("¿Desea volver al menú principal?", "Game Over", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+                // Verificar la respuesta del usuario
+                if (resultado == DialogResult.OK)
+                {
+                    frmMenuPrincipal frmMenuPrincipal = new frmMenuPrincipal();
+                    frmMenuPrincipal.Show();
+
+                    this.Close();
+                }
             }
         }
 
@@ -159,6 +170,11 @@ namespace pryEliasFrancisco
         private void timerNave_Tick(object sender, EventArgs e)
         {
             Mover_Con_Flechas();          
+        }
+
+        private void frmGalaga_Load(object sender, EventArgs e)
+        {
+           
         }
 
         private void timerMisil_Tick(object sender, EventArgs e)
