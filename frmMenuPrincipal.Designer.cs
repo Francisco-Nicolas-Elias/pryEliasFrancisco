@@ -59,7 +59,7 @@
             // firmaToolStripMenuItem
             // 
             this.firmaToolStripMenuItem.Name = "firmaToolStripMenuItem";
-            this.firmaToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.firmaToolStripMenuItem.Size = new System.Drawing.Size(118, 24);
             this.firmaToolStripMenuItem.Text = "Firma";
             // 
             // juegoToolStripMenuItem
@@ -73,7 +73,7 @@
             // galagaToolStripMenuItem
             // 
             this.galagaToolStripMenuItem.Name = "galagaToolStripMenuItem";
-            this.galagaToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.galagaToolStripMenuItem.Size = new System.Drawing.Size(126, 24);
             this.galagaToolStripMenuItem.Text = "Galaga";
             // 
             // frmMenuPrincipal
@@ -87,6 +87,7 @@
             this.Name = "frmMenuPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menú principal";
+            this.Load += new System.EventHandler(this.frmMenuPrincipal_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
