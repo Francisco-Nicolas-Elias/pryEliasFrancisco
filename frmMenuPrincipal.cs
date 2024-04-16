@@ -23,6 +23,8 @@ namespace pryEliasFrancisco
         {
             try
             {
+                //Server = localhost; DataBase = Juego_Rol; Uid = root; pwd = ; Cadena de Conexión
+
                 string cadenaConexion = "Server = localhost;" + "DataBase = Juego_Rol;" + "Uid = root;" + "Pwd = ;";
 
                 MySqlConnection conexion = new MySqlConnection(cadenaConexion);
@@ -35,11 +37,6 @@ namespace pryEliasFrancisco
             {
                 MessageBox.Show(error.Message);
             }
-        }
-
-        //Server = localhost;
-        //DataBase = Juego_Rol
-        //Uid = root
-        //pwd = ;         
+        }       
     }
 }
