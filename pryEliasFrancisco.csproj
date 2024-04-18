@@ -46,6 +46,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="clsNave.cs" />
+    <Compile Include="frmComienzoGalaga.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmComienzoGalaga.Designer.cs">
+      <DependentUpon>frmComienzoGalaga.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmGalaga.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,6 +67,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmComienzoGalaga.resx">
+      <DependentUpon>frmComienzoGalaga.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmGalaga.resx">
       <DependentUpon>frmGalaga.cs</DependentUpon>
     </EmbeddedResource>
@@ -103,6 +113,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Nave2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EnemigoSinFondo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NaveSinFondo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MisilSinFondo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EnemigoNuevo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

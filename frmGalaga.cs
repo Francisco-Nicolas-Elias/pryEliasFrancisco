@@ -16,7 +16,9 @@ namespace pryEliasFrancisco
 
         int puntaje;
 
-        public frmGalaga()
+        string nombreRecibido;
+
+        public frmGalaga(string nombreJugadorGalaga)
         {
             InitializeComponent();
             
@@ -25,8 +27,9 @@ namespace pryEliasFrancisco
             //Aseguro de que el formulario tenga el foco para recibir eventos de teclado
             this.Focus();
 
+            nombreRecibido = nombreJugadorGalaga;
+
             lblGameOver.Hide();
-            
         }
 
         //Función para mover la nave con las flechas 
@@ -51,7 +54,7 @@ namespace pryEliasFrancisco
                 }
             }
         }
-
+        
         //Función para el movimiento del enemigo
         void Movimiento_Enemigo()
         {
@@ -76,8 +79,8 @@ namespace pryEliasFrancisco
             else 
             {
                 //Incremento la posición vertical
-                pbEnemigo.Top += 30;
-                pbEnemigoDos.Top += 20;
+                pbEnemigo.Top += 20;
+                pbEnemigoDos.Top += 15;
             }
         }
         
@@ -86,7 +89,7 @@ namespace pryEliasFrancisco
         {
             PictureBox pbMisil = new PictureBox();
             pbMisil.SizeMode = PictureBoxSizeMode.StretchImage;
-            pbMisil.Image = Properties.Resources.misil;
+            pbMisil.Image = Properties.Resources.MisilSinFondo;
             pbMisil.BackColor = System.Drawing.Color.Transparent;
             pbMisil.Tag = "Misil";
             pbMisil.Left = pbNave.Left + 8;
@@ -136,12 +139,13 @@ namespace pryEliasFrancisco
                             {
                                 //Muevo al enemigo hacia arriba simulando la muerte del mismo 
                                 enemigo.Top -= 1000;
-                                
+                                this.Controls.Remove(misil);
                                 //Incremento un punto en el puntaje del jugador
                                 puntaje = puntaje + 1;
 
                                 //Muestro en un label el puntaje 
                                 lblPuntaje.Text = "Puntaje: " + puntaje;
+                                return;
                             }
                         }
                     }
@@ -156,13 +160,13 @@ namespace pryEliasFrancisco
                 lblGameOver.Show();
                 lblGameOver.BringToFront();
 
-                DialogResult resultado = MessageBox.Show("Su puntaje fue: " + puntaje + "\n¿Desea volver al menú principal?", "Game Over", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                DialogResult resultado = MessageBox.Show(nombreRecibido + " su puntaje fue: " + puntaje + "\n¿Desea volver al menú principal?", "Game Over", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
                 //Verifico la respuesta del usuario
                 if (resultado == DialogResult.OK)
                 {
-                    frmMenuPrincipal frmMenuPrincipal = new frmMenuPrincipal();
-                    frmMenuPrincipal.Show();
+                    frmComienzoGalaga frmComienzoGalga = new frmComienzoGalaga();
+                    frmComienzoGalga.Show();
 
                     this.Close();
                 }
@@ -194,6 +198,7 @@ namespace pryEliasFrancisco
 
         private void timerEnemigo_Tick(object sender, EventArgs e)
         {
+
             Movimiento_Enemigo();
             Resultado_Juego();
         }
@@ -205,7 +210,7 @@ namespace pryEliasFrancisco
 
         private void frmGalaga_Load(object sender, EventArgs e)
         {
-           
+            lblNombreJugador.Text = "Jugador: " + nombreRecibido;
         }
 
         private void timerMisil_Tick(object sender, EventArgs e)

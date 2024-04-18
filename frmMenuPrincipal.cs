@@ -19,8 +19,8 @@ namespace pryEliasFrancisco
 
         private void galagaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmGalaga frmGalaga = new frmGalaga();
-            frmGalaga.Show();
+            frmComienzoGalaga frmComienzoGalaga = new frmComienzoGalaga();
+            frmComienzoGalaga.Show();
             this.Hide();
         }
     }

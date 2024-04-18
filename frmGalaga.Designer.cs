@@ -37,6 +37,7 @@
             this.lblPuntaje = new System.Windows.Forms.Label();
             this.pbEnemigoDos = new System.Windows.Forms.PictureBox();
             this.lblGameOver = new System.Windows.Forms.Label();
+            this.lblNombreJugador = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbNave)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEnemigo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEnemigoDos)).BeginInit();
@@ -45,7 +46,7 @@
             // pbNave
             // 
             this.pbNave.BackColor = System.Drawing.Color.Transparent;
-            this.pbNave.Image = global::pryEliasFrancisco.Properties.Resources.Nave2;
+            this.pbNave.Image = global::pryEliasFrancisco.Properties.Resources.NaveSinFondo;
             this.pbNave.Location = new System.Drawing.Point(270, 544);
             this.pbNave.Name = "pbNave";
             this.pbNave.Size = new System.Drawing.Size(116, 105);
@@ -56,7 +57,7 @@
             // pbEnemigo
             // 
             this.pbEnemigo.BackColor = System.Drawing.Color.Transparent;
-            this.pbEnemigo.Image = global::pryEliasFrancisco.Properties.Resources.enemigo;
+            this.pbEnemigo.Image = global::pryEliasFrancisco.Properties.Resources.EnemigoNuevo;
             this.pbEnemigo.Location = new System.Drawing.Point(270, 12);
             this.pbEnemigo.Name = "pbEnemigo";
             this.pbEnemigo.Size = new System.Drawing.Size(87, 75);
@@ -85,8 +86,8 @@
             this.lblPuntaje.AutoSize = true;
             this.lblPuntaje.BackColor = System.Drawing.Color.Transparent;
             this.lblPuntaje.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPuntaje.ForeColor = System.Drawing.Color.Cyan;
-            this.lblPuntaje.Location = new System.Drawing.Point(12, 22);
+            this.lblPuntaje.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.lblPuntaje.Location = new System.Drawing.Point(12, 44);
             this.lblPuntaje.Name = "lblPuntaje";
             this.lblPuntaje.Size = new System.Drawing.Size(103, 24);
             this.lblPuntaje.TabIndex = 2;
@@ -95,7 +96,7 @@
             // pbEnemigoDos
             // 
             this.pbEnemigoDos.BackColor = System.Drawing.Color.Transparent;
-            this.pbEnemigoDos.Image = global::pryEliasFrancisco.Properties.Resources.enemigo;
+            this.pbEnemigoDos.Image = global::pryEliasFrancisco.Properties.Resources.EnemigoNuevo;
             this.pbEnemigoDos.Location = new System.Drawing.Point(471, 107);
             this.pbEnemigoDos.Name = "pbEnemigoDos";
             this.pbEnemigoDos.Size = new System.Drawing.Size(87, 75);
@@ -116,6 +117,18 @@
             this.lblGameOver.TabIndex = 4;
             this.lblGameOver.Text = "Game Over";
             // 
+            // lblNombreJugador
+            // 
+            this.lblNombreJugador.AutoSize = true;
+            this.lblNombreJugador.BackColor = System.Drawing.Color.Transparent;
+            this.lblNombreJugador.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombreJugador.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.lblNombreJugador.Location = new System.Drawing.Point(12, 12);
+            this.lblNombreJugador.Name = "lblNombreJugador";
+            this.lblNombreJugador.Size = new System.Drawing.Size(98, 24);
+            this.lblNombreJugador.TabIndex = 5;
+            this.lblNombreJugador.Text = "Jugador: ";
+            // 
             // frmGalaga
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -123,6 +136,7 @@
             this.BackgroundImage = global::pryEliasFrancisco.Properties.Resources.espacio_exterior;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(684, 661);
+            this.Controls.Add(this.lblNombreJugador);
             this.Controls.Add(this.lblGameOver);
             this.Controls.Add(this.pbEnemigoDos);
             this.Controls.Add(this.lblPuntaje);
@@ -144,8 +158,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.PictureBox pbNave;
         private System.Windows.Forms.PictureBox pbEnemigo;
         private System.Windows.Forms.Timer timerEnemigo;
         private System.Windows.Forms.Timer timerMisil;
@@ -153,5 +165,7 @@
         private System.Windows.Forms.Label lblPuntaje;
         private System.Windows.Forms.PictureBox pbEnemigoDos;
         private System.Windows.Forms.Label lblGameOver;
+        private System.Windows.Forms.PictureBox pbNave;
+        private System.Windows.Forms.Label lblNombreJugador;
     }
 }

@@ -73,6 +73,26 @@ namespace pryEliasFrancisco.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap EnemigoNuevo {
+            get {
+                object obj = ResourceManager.GetObject("EnemigoNuevo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap EnemigoSinFondo {
+            get {
+                object obj = ResourceManager.GetObject("EnemigoSinFondo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap espacio_exterior {
             get {
                 object obj = ResourceManager.GetObject("espacio exterior", resourceCulture);
@@ -93,6 +113,16 @@ namespace pryEliasFrancisco.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap MisilSinFondo {
+            get {
+                object obj = ResourceManager.GetObject("MisilSinFondo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap nave {
             get {
                 object obj = ResourceManager.GetObject("nave", resourceCulture);
@@ -106,6 +136,16 @@ namespace pryEliasFrancisco.Properties {
         internal static System.Drawing.Bitmap Nave2 {
             get {
                 object obj = ResourceManager.GetObject("Nave2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap NaveSinFondo {
+            get {
+                object obj = ResourceManager.GetObject("NaveSinFondo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
