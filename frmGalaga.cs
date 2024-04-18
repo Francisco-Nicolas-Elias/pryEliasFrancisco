@@ -89,7 +89,7 @@ namespace pryEliasFrancisco
         {
             PictureBox pbMisil = new PictureBox();
             pbMisil.SizeMode = PictureBoxSizeMode.StretchImage;
-            pbMisil.Image = Properties.Resources.MisilSinFondo;
+            pbMisil.Image = Properties.Resources.MisilSinFondo2;
             pbMisil.BackColor = System.Drawing.Color.Transparent;
             pbMisil.Tag = "Misil";
             pbMisil.Left = pbNave.Left + 8;
