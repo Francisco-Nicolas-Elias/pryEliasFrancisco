@@ -121,8 +121,8 @@
   <data name="nave" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\nave.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="espacio exterior" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\espacio exterior.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="MisilSinFondo2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MisilSinFondo2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="EnemigoSinFondo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\EnemigoSinFondo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -132,6 +132,9 @@
   </data>
   <data name="MisilSinFondo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MisilSinFondo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="espacio exterior" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\espacio exterior.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="enemigo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\enemigo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -145,7 +148,7 @@
   <data name="EnemigoNuevo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\EnemigoNuevo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="MisilSinFondo2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\MisilSinFondo2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="MisilSinFondo2MasChica" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MisilSinFondo2MasChica.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
