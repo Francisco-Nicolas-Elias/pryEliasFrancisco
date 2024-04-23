@@ -51,13 +51,13 @@ namespace pryEliasFrancisco
         {
             objNave.MoverNave(pbNave, e, this);
 
-            // Verificar si la tecla presionada es Escape (Esc)
+            //Verificar si la tecla presionada es Escape (Esc)
             if (e.KeyCode == Keys.Escape)
             {
-                // Cerrar el formulario
+                //Cerrar el formulario
                 this.Close();
-                frmComienzoGalaga frmComienzoGalga = new frmComienzoGalaga();
-                frmComienzoGalga.Show();
+                frmComienzoGalaga frmComienzoGalaga = new frmComienzoGalaga();
+                frmComienzoGalaga.Show();
             }         
         }
 
