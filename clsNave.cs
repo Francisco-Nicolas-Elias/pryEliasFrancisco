@@ -28,13 +28,14 @@ namespace pryEliasFrancisco
             {
                 pbNave.Left -= 30;
             }
-
+            //Condición para que dispare al presionar espacio
             if (Tecla.KeyCode == Keys.Space)
             {
                 Disparo(pbNave, frmGalaga);
             }
         }
 
+        //Creo el Misil que va a disparar la Nave
         public void Disparo(PictureBox pbNave, frmGalaga frmGalaga)
         {
             //Creo una nueva instancia de PictureBox para el misil
@@ -49,7 +50,7 @@ namespace pryEliasFrancisco
             pbMisil.Visible = true;
             //Añado el control PictureBox al formulario
             frmGalaga.Controls.Add(pbMisil);
-            //Agego Misil a la Lista
+            //Agrego el Misil a la Lista
             listaMisiles.Add(pbMisil);
             //Hago que el pictureBox creado este al frente de los otros controles en el formulario y se vea 
             pbMisil.BringToFront();

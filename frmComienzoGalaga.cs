@@ -15,6 +15,7 @@ namespace pryEliasFrancisco
         public frmComienzoGalaga()
         {
             InitializeComponent();
+            this.AcceptButton = btnComenzar;
         }
         private void txtNombreJugador_TextChanged(object sender, EventArgs e)
         {

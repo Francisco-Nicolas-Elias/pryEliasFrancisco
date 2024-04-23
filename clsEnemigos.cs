@@ -32,24 +32,25 @@ namespace pryEliasFrancisco
             }
         }
 
-        public void Enemigos(frmGalaga frmGalaga)
+        public void CrearEnemigos(frmGalaga frmGalaga)
         {
             PictureBox pbEnemigo = new PictureBox();
             Random random = new Random();
-            int posicion = random.Next(0, 600);
+            int posicionX = random.Next(0, 600);
 
             pbEnemigo.Image = pryEliasFrancisco.Properties.Resources.EnemigoNuevo;
             pbEnemigo.SizeMode = PictureBoxSizeMode.StretchImage;
             pbEnemigo.Tag = "Enemigo";
             pbEnemigo.BackColor = Color.Transparent;
-            pbEnemigo.Location = new Point(posicion, 0);
+            pbEnemigo.Location = new Point(posicionX, 0);
             pbEnemigo.Visible = true;
+            //Añado el control PictureBox al formulario
             frmGalaga.Controls.Add(pbEnemigo);
-            listaEnemigos.Add(pbEnemigo);
+            //Agrego el Enemigo a la Lista
+            listaEnemigos.Add(pbEnemigo); 
             pbEnemigo.BringToFront();
 
             timerEnemigos.Start();
-
         }
     }
 }

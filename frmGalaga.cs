@@ -50,6 +50,15 @@ namespace pryEliasFrancisco
         private void frmGalaga_KeyDown(object sender, KeyEventArgs e)
         {
             objNave.MoverNave(pbNave, e, this);
+
+            // Verificar si la tecla presionada es Escape (Esc)
+            if (e.KeyCode == Keys.Escape)
+            {
+                // Cerrar el formulario
+                this.Close();
+                frmComienzoGalaga frmComienzoGalga = new frmComienzoGalaga();
+                frmComienzoGalga.Show();
+            }         
         }
 
         private void frmGalaga_Load(object sender, EventArgs e)
@@ -59,29 +68,36 @@ namespace pryEliasFrancisco
 
         private void timerEnemigos_Tick(object sender, EventArgs e)
         {
-            objEnemigos.Enemigos(this);
+            objEnemigos.CrearEnemigos(this);
         }
 
         private void timerMisil_Tick(object sender, EventArgs e)
         {
+            //Recorro la listaMisiles
             foreach (var Misil in objNave.listaMisiles.ToList())
             {
+                //Si la variable no es nula se mueve el Misil que se creo y almaceno en la lista
                 if (Misil != null)
                 {
                     Misil.Top -= 10;
+
                     //Verifico que se intersecten el misil y el enemigo
                     foreach (var Enemigo in objEnemigos.listaEnemigos.ToList())
                     {
                         if (Misil.Bounds.IntersectsWith(Enemigo.Bounds))
                         {
-                            //Si hay colisión se oculta el enemigo
-                            Enemigo.Visible = false;
-                            Misil.Visible = false;
+                            //Si se intersectan los elimino
+                            Enemigo.Dispose();
+                            Misil.Dispose();
+                           
                             puntaje = puntaje + 1;
                             lblPuntaje.Text = "Puntaje: " + puntaje;
+
+                            //Elimino de la lista a los Misiles y Enemigos que se hayan intersectado
                             objEnemigos.listaEnemigos.Remove(Enemigo);
                             objNave.listaMisiles.Remove(Misil);                       
                         }
+                        //Condición para finalizar el juego, si el Enemigo choca con la nave o llega al final del formulario, el jugador pierde el juego 
                         if (pbNave.Bounds.IntersectsWith(Enemigo.Bounds) || Enemigo.Bottom >= this.ClientSize.Height)
                         {
                             objEnemigos.listaEnemigos.Clear();
@@ -90,7 +106,7 @@ namespace pryEliasFrancisco
                             lblGameOver.Show();
                             lblGameOver.BringToFront();
 
-                            DialogResult resultado = MessageBox.Show(nombreRecibido + " su puntaje fue: " + puntaje + "\n¿Desea volver al menú principal?", "Game Over", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                            DialogResult resultado = MessageBox.Show(nombreRecibido + " su puntaje fue: " + puntaje + "\n¿Desea volver al menú de juego?", "Game Over", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
                             //Verifico la respuesta del usuario
                             if (resultado == DialogResult.OK)
@@ -99,51 +115,11 @@ namespace pryEliasFrancisco
                                 frmComienzoGalga.Show();
 
                                 this.Close();
-                            }
+                            }                
                         }
                     }
                 }
             }
-
-            /*
-            // Verificar colisión de la nave con un enemigo o posición del enemigo
-            if (!gameOverMostrado)
-            {
-                foreach (Control control in Controls)
-                {
-                    if (control is PictureBox && control.Tag != null && control.Tag.ToString() == "Enemigo")
-                    {
-                        var Enemigo = (PictureBox)control;
-                        if (pbNave.Bounds.IntersectsWith(Enemigo.Bounds) || Enemigo.Bottom >= this.ClientSize.Height)
-                        {
-                            MostrarGameOver();
-                            gameOverMostrado = true;
-                            break; // Salir del bucle una vez que se haya mostrado el Game Over
-                        }
-                    }
-                }
-            }*/
         }
-        /*
-        private void MostrarGameOver()
-        {
-            timerEnemigos.Stop();
-
-            lblGameOver.Show();
-            lblGameOver.BringToFront();
-
-            DialogResult resultado = MessageBox.Show(nombreRecibido + " su puntaje fue: " + puntaje + "\n¿Desea volver al menú principal?", "Game Over", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-
-            if (resultado == DialogResult.OK)
-            {
-                frmComienzoGalaga frmComienzoGalga = new frmComienzoGalaga();
-                frmComienzoGalga.Show();
-
-                // Reiniciar la bandera gameOverMostrado
-                gameOverMostrado = false;
-
-                this.Close();
-            }
-        }*/
     }
 }

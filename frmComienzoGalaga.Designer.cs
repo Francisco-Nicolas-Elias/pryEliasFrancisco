@@ -51,7 +51,7 @@
             // 
             this.txtNombreJugador.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.txtNombreJugador.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombreJugador.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.txtNombreJugador.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.txtNombreJugador.Location = new System.Drawing.Point(350, 199);
             this.txtNombreJugador.Name = "txtNombreJugador";
             this.txtNombreJugador.Size = new System.Drawing.Size(152, 31);
