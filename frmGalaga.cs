@@ -76,7 +76,7 @@ namespace pryEliasFrancisco
             //Recorro la listaMisiles
             foreach (var Misil in objNave.listaMisiles.ToList())
             {
-                //Si la variable no es nula se mueve el Misil que se creo y almaceno en la lista
+                //Si la variable no es nula se mueve el Misil que se creó y almacenó en la lista
                 if (Misil != null)
                 {
                     Misil.Top -= 10;
@@ -105,7 +105,7 @@ namespace pryEliasFrancisco
                             timerMisil.Stop();
                             lblGameOver.Show();
                             lblGameOver.BringToFront();
-
+                            
                             DialogResult resultado = MessageBox.Show(nombreRecibido + " su puntaje fue: " + puntaje + "\n¿Desea volver al menú de juego?", "Game Over", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
                             //Verifico la respuesta del usuario
@@ -115,7 +115,7 @@ namespace pryEliasFrancisco
                                 frmComienzoGalga.Show();
 
                                 this.Close();
-                            }                
+                            }         
                         }
                     }
                 }
