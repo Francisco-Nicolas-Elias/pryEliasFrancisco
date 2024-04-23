@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="clsEnemigos.cs" />
     <Compile Include="clsNave.cs" />
     <Compile Include="frmComienzoGalaga.cs">
       <SubType>Form</SubType>

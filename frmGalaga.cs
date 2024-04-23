@@ -12,11 +12,17 @@ namespace pryEliasFrancisco
 {
     public partial class frmGalaga : Form
     {
-        bool derecha, izquierda, espacio;
-
         int puntaje;
 
         string nombreRecibido;
+
+        private bool gameOverMostrado = false;
+
+        clsNave objNave = new clsNave();
+        clsEnemigos objEnemigos = new clsEnemigos();
+
+        private System.Windows.Forms.Timer timerEnemigos = new System.Windows.Forms.Timer();
+        private System.Windows.Forms.Timer timerMisil = new System.Windows.Forms.Timer();
 
         public frmGalaga(string nombreJugadorGalaga)
         {
@@ -30,182 +36,20 @@ namespace pryEliasFrancisco
             nombreRecibido = nombreJugadorGalaga;
 
             lblGameOver.Hide();
+
+            timerEnemigos.Interval = 2000;
+            timerEnemigos.Tick += timerEnemigos_Tick;
+            timerEnemigos.Start();
+
+            timerMisil.Start();
+            timerMisil.Interval = 2;
+            timerMisil.Tick += timerMisil_Tick;
         }
-
-        //Función para mover la nave con las flechas 
-        void Mover_Con_Flechas()
-        {
-            //Si la bandera es true ingresa 
-            if (derecha == true)
-            {
-                //Condición que utilizo para que la nave haga tope en el costado del formulario
-                if (pbNave.Left < 550)
-                {
-                    pbNave.Left += 30;
-                }
-            }
-
-            if (izquierda == true)
-            {
-                //Condición que utilizo para que la nave haga tope en el costado del formulario
-                if (pbNave.Left > 10)
-                {
-                    pbNave.Left -= 30;
-                }
-            }
-        }
-        
-        //Función para el movimiento del enemigo
-        void Movimiento_Enemigo()
-        {
-            //Creo una instancia de la clase random para generar números aleatorios donde saldrán los enemigos 
-            Random enemigo = new Random();
-
-            //Variables para almacenar los posiciones aleatorias donde se moverán los enemigos 
-            int posicionUno, posicionDos;
-
-            if (pbEnemigo.Top >= 700)
-            {
-                //Asigno a posicionUno el número aleatorio(Que representa la nueva posición horizontal del enemigo)
-                posicionUno = enemigo.Next(0, 584);
-                pbEnemigo.Location = new Point(posicionUno, 0);
-            }
-            if (pbEnemigoDos.Top >= 700)
-            {
-                //Asigno a posicionDos el número aleatorio(Que representa la nueva posición horizontal del segundo enemigo)
-                posicionDos = enemigo.Next(0, 584);
-                pbEnemigoDos .Location = new Point(posicionDos, 0);
-            }
-            else 
-            {
-                //Incremento la posición vertical
-                pbEnemigo.Top += 20;
-                pbEnemigoDos.Top += 15;
-            }
-        }
-        
-        //Función para crear el pictureBox que contiene el Misil
-        void Agregar_Misil()
-        {
-            PictureBox pbMisil = new PictureBox();
-            pbMisil.SizeMode = PictureBoxSizeMode.StretchImage;
-            pbMisil.Image = Properties.Resources.MisilSinFondo2;
-            pbMisil.BackColor = System.Drawing.Color.Transparent;
-            pbMisil.Tag = "Misil";
-            pbMisil.Left = pbNave.Left + 8;
-            pbMisil.Top = pbNave.Top - 50;
-            //Añado el control PictureBox al formulario
-            this.Controls.Add(pbMisil);
-            //Hago que el pictureBox creado este al frente de los otros controles en el formulario y se vea 
-            pbMisil.BringToFront();
-        }
-
-        //Función para el movimiento del misil 
-        void Movimiento_Misil()
-        {
-            //Con este bucle foreach recorro todos los controles que estan contenidos en esto formulario 
-            foreach (Control controlActual in this.Controls)
-            {
-                //En esta condición ingresa si el control es un pictureBox y su propiedad Tag es "Misil", la cual le asigne al pictureBox del Misil 
-                if (controlActual is PictureBox && controlActual.Tag == "Misil")
-                {
-                    //Si el control es el pictureBox hago que se mueva
-                    controlActual.Top -= 30;
-                    if(controlActual.Top < 10)
-                    {
-                        this.Controls.Remove(controlActual);
-                    }
-                }
-            }
-        }
-        
-        //Función en la cual si se intersectan los pictureBox del misil y enemigo desaparece el enemigo
-        void Resultado_Juego()
-        {
-            //Con este bucle foreach recorro todos los controles que estan contenidos en esto formulario 
-            foreach (Control misil in this.Controls)
-            {
-                //Con este bucle foreach recorro todos los controles que estan contenidos en esto formulario 
-                foreach (Control enemigo in this.Controls)
-                {
-                    //En esta condición ingresa si el control es un pictureBox y su propiedad Tag es "Misil", la cual le asigne al pictureBox del Misil
-                    if (misil is PictureBox && misil.Tag == "Misil")
-                    {
-                        //En esta condición ingresa si el control es un pictureBox y su propiedad Tag es "Enemigo", la cual le asigne a los pictureBox de los Enemigos
-                        if (enemigo is PictureBox && enemigo.Tag == "Enemigo")
-                        {
-                            //Si los límites de los dos pictureBox se intersectan significa que colisionan, entonces ingresa 
-                            if (misil.Bounds.IntersectsWith(enemigo.Bounds))
-                            {
-                                //Muevo al enemigo hacia arriba simulando la muerte del mismo 
-                                enemigo.Top -= 1000;
-                                this.Controls.Remove(misil);
-                                //Incremento un punto en el puntaje del jugador
-                                puntaje = puntaje + 1;
-
-                                //Muestro en un label el puntaje 
-                                lblPuntaje.Text = "Puntaje: " + puntaje;
-                                return;
-                            }
-                        }
-                    }
-                }
-            }
-            //Si la nave choca con alguno de los enemigos ingresa y hago que finalice el juego 
-            if(pbNave.Bounds.IntersectsWith(pbEnemigoDos.Bounds) || pbNave.Bounds.IntersectsWith(pbEnemigo.Bounds) || pbEnemigo.Bottom >= this.ClientSize.Height || pbEnemigoDos.Bottom >= this.ClientSize.Height)
-            {
-                timerNave.Stop();
-                timerEnemigo.Stop();
-                timerMisil.Stop();
-                lblGameOver.Show();
-                lblGameOver.BringToFront();
-
-                DialogResult resultado = MessageBox.Show(nombreRecibido + " su puntaje fue: " + puntaje + "\n¿Desea volver al menú principal?", "Game Over", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-
-                //Verifico la respuesta del usuario
-                if (resultado == DialogResult.OK)
-                {
-                    frmComienzoGalaga frmComienzoGalga = new frmComienzoGalaga();
-                    frmComienzoGalga.Show();
-
-                    this.Close();
-                }
-            }
-        }
-
+             
         //Procedimiento del evento KeyDown(Presionar una tecla) para mover con las flechas la nave y disparar con espacio
         private void frmGalaga_KeyDown(object sender, KeyEventArgs e)
         {
-            //Si presiona la flecha derecha pongo la bandera en true para poder generar el movimiento que cree en la función Mover_Con_Flechas
-            if (e.KeyCode == Keys.Right)
-            {
-                derecha = true;
-            }
-
-            //Si presiona la flecha izquierda pongo la bandera en true para poder generar el movimiento que cree en la función Mover_Con_Flechas
-            if (e.KeyCode == Keys.Left)
-            {
-                izquierda = true;
-            }
-
-            //Si presiona el espacio pongo la bandera en true para poder generar el movimiento que cree en la función Movimiento_Misil
-            if (e.KeyCode == Keys.Space)
-            {
-                espacio = true;
-                Agregar_Misil();
-            }
-        }
-
-        private void timerEnemigo_Tick(object sender, EventArgs e)
-        {
-
-            Movimiento_Enemigo();
-            Resultado_Juego();
-        }
-
-        private void timerNave_Tick(object sender, EventArgs e)
-        {
-            Mover_Con_Flechas();          
+            objNave.MoverNave(pbNave, e, this);
         }
 
         private void frmGalaga_Load(object sender, EventArgs e)
@@ -213,29 +57,93 @@ namespace pryEliasFrancisco
             lblNombreJugador.Text = "Jugador: " + nombreRecibido;
         }
 
+        private void timerEnemigos_Tick(object sender, EventArgs e)
+        {
+            objEnemigos.Enemigos(this);
+        }
+
         private void timerMisil_Tick(object sender, EventArgs e)
         {
-            Movimiento_Misil();
-        }
+            foreach (var Misil in objNave.listaMisiles.ToList())
+            {
+                if (Misil != null)
+                {
+                    Misil.Top -= 10;
+                    //Verifico que se intersecten el misil y el enemigo
+                    foreach (var Enemigo in objEnemigos.listaEnemigos.ToList())
+                    {
+                        if (Misil.Bounds.IntersectsWith(Enemigo.Bounds))
+                        {
+                            //Si hay colisión se oculta el enemigo
+                            Enemigo.Visible = false;
+                            Misil.Visible = false;
+                            puntaje = puntaje + 1;
+                            lblPuntaje.Text = "Puntaje: " + puntaje;
+                            objEnemigos.listaEnemigos.Remove(Enemigo);
+                            objNave.listaMisiles.Remove(Misil);                       
+                        }
+                        if (pbNave.Bounds.IntersectsWith(Enemigo.Bounds) || Enemigo.Bottom >= this.ClientSize.Height)
+                        {
+                            objEnemigos.listaEnemigos.Clear();
+                            timerEnemigos.Stop();
+                            timerMisil.Stop();
+                            lblGameOver.Show();
+                            lblGameOver.BringToFront();
 
-        //Procedimiento del evento KeyUp(Cuando se suelta la tecla) cambio las banderas a false para que no dispare ni se mueva la nave sola 
-        private void frmGalaga_KeyUp(object sender, KeyEventArgs e)
+                            DialogResult resultado = MessageBox.Show(nombreRecibido + " su puntaje fue: " + puntaje + "\n¿Desea volver al menú principal?", "Game Over", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+                            //Verifico la respuesta del usuario
+                            if (resultado == DialogResult.OK)
+                            {
+                                frmComienzoGalaga frmComienzoGalga = new frmComienzoGalaga();
+                                frmComienzoGalga.Show();
+
+                                this.Close();
+                            }
+                        }
+                    }
+                }
+            }
+
+            /*
+            // Verificar colisión de la nave con un enemigo o posición del enemigo
+            if (!gameOverMostrado)
+            {
+                foreach (Control control in Controls)
+                {
+                    if (control is PictureBox && control.Tag != null && control.Tag.ToString() == "Enemigo")
+                    {
+                        var Enemigo = (PictureBox)control;
+                        if (pbNave.Bounds.IntersectsWith(Enemigo.Bounds) || Enemigo.Bottom >= this.ClientSize.Height)
+                        {
+                            MostrarGameOver();
+                            gameOverMostrado = true;
+                            break; // Salir del bucle una vez que se haya mostrado el Game Over
+                        }
+                    }
+                }
+            }*/
+        }
+        /*
+        private void MostrarGameOver()
         {
-            //Cuando se sueltan las teclas cambio las banderas a false para detener las acciones que realizan dichas teclas
-            if (e.KeyCode == Keys.Right)
-            {
-                derecha = false;
-            }
+            timerEnemigos.Stop();
 
-            if (e.KeyCode == Keys.Left)
-            {
-                izquierda = false;
-            }
+            lblGameOver.Show();
+            lblGameOver.BringToFront();
 
-            if (e.KeyCode == Keys.Space)
+            DialogResult resultado = MessageBox.Show(nombreRecibido + " su puntaje fue: " + puntaje + "\n¿Desea volver al menú principal?", "Game Over", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+            if (resultado == DialogResult.OK)
             {
-                espacio = false;
+                frmComienzoGalaga frmComienzoGalga = new frmComienzoGalaga();
+                frmComienzoGalga.Show();
+
+                // Reiniciar la bandera gameOverMostrado
+                gameOverMostrado = false;
+
+                this.Close();
             }
-        }
+        }*/
     }
 }
