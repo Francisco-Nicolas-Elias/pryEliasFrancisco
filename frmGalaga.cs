@@ -49,7 +49,7 @@ namespace pryEliasFrancisco
         //Procedimiento del evento KeyDown(Presionar una tecla) para mover con las flechas la nave y disparar con espacio
         private void frmGalaga_KeyDown(object sender, KeyEventArgs e)
         {
-            objNave.MoverNave(pbNave, e, this);
+            objNave.MoverNave(pbNave, e, this, objNave.pbMisil);
 
             //Verificar si la tecla presionada es Escape (Esc)
             if (e.KeyCode == Keys.Escape)
@@ -88,7 +88,8 @@ namespace pryEliasFrancisco
                         {
                             //Si se intersectan los elimino
                             Enemigo.Dispose();
-                            Misil.Dispose();
+                            //Misil.Dispose();
+                            Misil.Top -= 1000;
                            
                             puntaje = puntaje + 1;
                             lblPuntaje.Text = "Puntaje: " + puntaje;
