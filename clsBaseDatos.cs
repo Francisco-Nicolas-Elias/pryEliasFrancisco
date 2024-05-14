@@ -49,7 +49,7 @@ namespace pryEliasFrancisco
                     command.Parameters.AddWithValue("@Jugardor", Jugador);
                     command.Parameters.AddWithValue("@Puntaje", Puntaje);
 
-                    //Ejecuto el comando
+                    //Ejecuto el comando para modificar los datos en la Base
                     command.ExecuteNonQuery();
 
                 }

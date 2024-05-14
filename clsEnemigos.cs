@@ -17,7 +17,7 @@ namespace pryEliasFrancisco
 
         public clsEnemigos()
         {
-            timerEnemigos.Interval = 20; // Puedes ajustar el intervalo según la velocidad deseada
+            timerEnemigos.Interval = 20; //Intervalo de velocidad
             timerEnemigos.Tick += timerEnemigos_Tick;
         }
 

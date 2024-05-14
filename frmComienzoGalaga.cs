@@ -33,7 +33,7 @@ namespace pryEliasFrancisco
         {
             string nombreJugador = txtNombreJugador.Text;
 
-
+            //Le paso nombreJugador como parámetro para poder utilizarlo en el formulario del Juego
             frmGalaga frmGalaga = new frmGalaga(nombreJugador);
             frmGalaga.Show();
             this.Close();

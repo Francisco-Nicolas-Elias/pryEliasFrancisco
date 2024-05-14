@@ -18,9 +18,11 @@ namespace pryEliasFrancisco
 
         private bool gameOverMostrado = false;
 
+        //Creo instancias de las clases 
         clsNave objNave = new clsNave();
         clsEnemigos objEnemigos = new clsEnemigos();
 
+        //Creo los Timers en el formulario
         private System.Windows.Forms.Timer timerEnemigos = new System.Windows.Forms.Timer();
         private System.Windows.Forms.Timer timerMisil = new System.Windows.Forms.Timer();
 
@@ -33,6 +35,7 @@ namespace pryEliasFrancisco
             //Aseguro de que el formulario tenga el foco para recibir eventos de teclado
             this.Focus();
 
+            //Creo una variable con el nombre ingresado en el formulario de inicio del Juego
             nombreRecibido = nombreJugadorGalaga;
 
             lblGameOver.Hide();
